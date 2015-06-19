@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :wishlists
   has_many :interests
+
+  def interests_ids
+    self.interests.map(&:id)
+  end
 end
