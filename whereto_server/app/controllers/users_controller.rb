@@ -2,12 +2,12 @@ class UsersController < ApplicationController
 
   # Create or Login user
   def create
-    user = User.find(email: params[:email])
-    if user
-      redirect 'events/show'
+    @user = User.find(email: params[:email])
+    if @user
+      redirect 'events/index'
     else
-      user = User.new()
-      if user.save
+      @user = User.new(user_params)
+      if @user.save
         redirect 'edit'
       end
     end
@@ -15,8 +15,8 @@ class UsersController < ApplicationController
 
   # Edit preferences
   def edit
-    user = User.find(params[:id])
-    interests = user.interests
+    get_user
+    interests = @user.interests
     categories = Category.all
 
 
@@ -34,7 +34,11 @@ class UsersController < ApplicationController
   private
   def get_user
     # What are we going to be sending back and forth?
-    user = User.find()
+    @user = User.find()
+  end
+
+  def user_params
+    params.permit(:first_name, :last_name, :email, :phone, :city, :image)
   end
 
 end
