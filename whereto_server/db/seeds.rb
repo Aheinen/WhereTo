@@ -30,65 +30,68 @@ categories = [{:name => 'music', :description => 'Concerts & Tour Dates' },
 
 Category.create(categories)
 
+sample_cats = ["art", "music", "food", "festivals_parades", "business", "technology", "sports", "fundraisers", "outdoors_recreation", "clubs_associations"]
 
-# cat_keys = categories.map{|c| c[:name]}
+sample_cats.each do |c|
 
-# sample_cats = [art, music, food, festivals_parades, business, technology, sports, fundraisers, outdoors_recreation, clubs_associations]
+  cat = Category.where(name:c)[0]
 
-# sample_cats.each do |c|
+  p url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=XXXXXXXXXXXXX"
 
-#   cat = Category.where(name:c)[0]
+  response = HTTParty.get(url)
 
-#   p cat
+  body = JSON.parse(response)
 
-#   p url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=q99zRXBKKxMw5dNP"
+  # p body
+  # p "*"*30
+  # p body["events"]
+  # p "*"*30
+  # p body["events"]["event"][0]["title"]
+  # p body["events"]["event"]["title"]
 
-#   response = HTTParty.get(url)
+  body["events"]["event"].each_with_index do |event, index|
+    name = event["title"]
+    city = event["city_name"]
+    description = event["description"]
+    venue = event["venue_name"]
+    price = event["price"]
+    starttime = event["start_time"]
+    endtime = event["stop_time"]
+    perf = []
+    if event["performers"] && !event["performers"].nil?
+      puts "this is event-performers:"
+      p event["performers"]
+      event["performers"].each {|k,v | perf << v["name"] }
+    else
+      performer = nil
+    end
+    performer = perf.join(", ")
+    event["free"] == 1 ? free = true : free = false
+    if description == ""
+      if event["performers"]
+        event["performers"].each {|k,v| description = description + " " + v["short_bio"] }
+      end
+    end
+    if event['image']
+      image = event['image']['medium']['url']
+      image.gsub!(/medium/, "block250")
+    end
 
-#   body = JSON.parse(response)
 
-#   # p body
-#   # p "*"*30
-#   # p body["events"]
-#   # p "*"*30
-#   # p body["events"]["event"][0]["title"]
-#   # p body["events"]["event"]["title"]
+    e = Event.new(name: name, city: city, description: description, venue: venue, price: price, free: free, start_time: starttime, end_time: endtime, performer: performer, image: image)
 
-#   body["events"]["event"].each_with_index do |event, index|
-#     p event
-#     p "*"*20
-#     p index
-#     p "*"*20
-#     p event["title"]
-#     p "*"*20
-#     name = event["title"]
-#     city = event["city_name"]
-#     description = event["description"]
-#     venue = event["venue_name"]
-#     price = event["price"]
-#     starttime = event["start_time"]
-#     endtime = event["stop_time"]
-#     # image = event['image']['medium']['url']
-#     perf = []
-#     if event["performers"]
-#       event["performers"].each {|k,v | perf << v["name"] }
-#     else
-#       performer = nil
-#     end
-#     performer = perf.join(", ")
-#     event["free"] == 1 ? free = true : free = false
-#     if description == ""
-#       if event["performers"]
-#         event["performers"].each {|k,v| description = description + " " + v["short_bio"] }
-#       end
-#     end
+    if e.save
+      CategoryEvent.create(category_id: cat.id, event_id: e.id)
+    end
 
-#     e = Event.new(name: name, city: city, description: description, venue: venue, price: price, free: free, start_time: starttime, end_time: endtime, performer: performer)
+  end
+end
 
-#     if e.save
-#       CategoryEvent.create(category_id: cat.id, event_id: e.id)
-#     end
-
+# Event.all.each do |e|
+#   if !e.image.nil?
+#     p e.image
+#     e.image.gsub!(/medium/,"block250")
+#     e.save
+#     p e
 #   end
-
-
+# end
