@@ -69,7 +69,7 @@ sample_cats.each do |c|
     event["free"] == 1 ? free = true : free = false
     if description == ""
       if event["performers"]
-        event["performers"].each {|k,v| description = description + " " + v["short_bio"] }
+        event["performers"]["performer"].each {|k,v| description = description + " " + v["short_bio"] }
       end
     end
     if event['image']
