@@ -18,20 +18,18 @@ class UsersController < ApplicationController
     get_user
     interests = @user.interests
     categories = Category.all
-
-
-
-    # render json: {user: user, categories: categories}
+    render 'edit.json.jbuilder'
   end
 
   def update
-
+    # destroy existing interests and repopulate?
   end
 
   def destroy
   end
 
   private
+
   def get_user
     # What are we going to be sending back and forth?
     @user = User.find()

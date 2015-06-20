@@ -1,1 +1,1 @@
-json.categories @categories, :name, :description, :sum_votes
+json.categories @categories, :name, :description, :selected
