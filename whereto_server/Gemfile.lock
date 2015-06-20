@@ -87,12 +87,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   jbuilder
-=======
   httparty
   nokogiri
->>>>>>> master
   pg
   rails (= 4.1.6)
   rails-api
