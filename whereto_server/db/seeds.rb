@@ -36,7 +36,7 @@ sample_cats.each do |c|
 
   cat = Category.where(name:c)[0]
 
-  p url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=XXXXXXXXXXXXX"
+  p url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=#{ENV['EVENTFUL_KEY']}"
 
   response = HTTParty.get(url)
 
@@ -61,7 +61,7 @@ sample_cats.each do |c|
     if event["performers"] && !event["performers"].nil?
       puts "this is event-performers:"
       p event["performers"]
-      event["performers"].each {|k,v | perf << v["name"] }
+      event["performers"]["performer"].each {|k,v | perf << v["name"] }
     else
       performer = nil
     end
