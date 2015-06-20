@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # categories = [{:name => 'music', :description => 'Concerts & Tour Dates' },
 # {:name => 'conference', :description => 'Conferences & Tradeshows' },
 # {:name => 'comedy', :description => 'Comedy' },
@@ -91,3 +93,4 @@
 
 
 # end
+>>>>>>> master
