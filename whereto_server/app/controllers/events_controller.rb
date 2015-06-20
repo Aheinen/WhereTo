@@ -2,11 +2,14 @@ class EventsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    ## Put badass query here to generate event
+    event = Event.featured_events(@user.interests_ids, @user.city, @user.wishlist_ids).limit(1)
     render json: {user: @user, event: event}
   end
 
   def show
+    # @user = User.find(params[:user_id])
+    # event = Event.featured_events(@user.interests_ids, @user.city, @user.wishlist_ids).limit(20)
+    # render json: {user: @user, events: events}
   end
 
 end
