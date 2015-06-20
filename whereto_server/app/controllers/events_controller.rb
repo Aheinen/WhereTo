@@ -6,10 +6,10 @@ class EventsController < ApplicationController
     render json: {user: @user, event: event}
   end
 
-  def show
-    # @user = User.find(params[:user_id])
-    # event = Event.featured_events(@user.interests_ids, @user.city, @user.wishlist_ids).limit(20)
-    # render json: {user: @user, events: events}
+  def list
+    @user = User.find(params[:user_id])
+    events = Event.featured_events(@user.interests_ids, @user.city, @user.wishlist_ids).limit(20)
+    render json: {user: @user, events: events}
   end
 
 end
