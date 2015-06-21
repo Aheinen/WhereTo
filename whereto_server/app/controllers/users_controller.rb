@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :get_user, only: [:edit, :update]
   # Create or Login user
   def create
     @user = User.find(email: params[:email])
@@ -15,24 +15,21 @@ class UsersController < ApplicationController
 
   # Edit preferences
   def edit
-    get_user
-    interests = @user.interests
-    categories = Category.all
+    @interests = @user.interests
+    @categories = Category.all
     render 'edit.json.jbuilder'
   end
 
   def update
-    # destroy existing interests and repopulate?
-  end
-
-  def destroy
+    @user.interests.destroy_all
+    @user.interests.create(params[:interests])
+    redirect 'events/index'
   end
 
   private
 
   def get_user
-    # What are we going to be sending back and forth?
-    @user = User.find()
+    @user = User.find(email: params[:email])
   end
 
   def user_params
