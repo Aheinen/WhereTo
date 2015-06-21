@@ -13,9 +13,9 @@
     <link href="css/styles.css" rel="stylesheet" media="screen">
 
     <!-- jQuery Mobile -->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="js/jquery-1.11.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 
     <!-- Personal AJAX -->
     <script src="js/my-ajax.js"></script>
@@ -24,7 +24,6 @@
     <!-- Modernizer -->
     <script src="js/vendor/modernizr.js"></script>
     <!-- Other Shizzz -->
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
     <!-- Auth -->
@@ -36,13 +35,20 @@
     <!-- data-transition options: fade, flip, flow, pop, slide, slidedown, slidefade, slideup, turn, none -->
 
 
+<<<<<<< HEAD
+ <!--    <div data-role="page" id="frontpage" data-theme="b">
+=======
     <div data-role="page" id="single" data-theme="b">
-      <!-- <img class="login-picture" src="./img/elvis.jpg" /> -->
+
+    </div>
+
+     <img class="login-picture" src="./img/elvis.jpg" />
+>>>>>>> master
         <div class="transbox">
           <p>Where To</p>
         </div>
       <a href="#"><img id="login" class="login-button" src="./img/fb-button.png"/></a>
-    </div>
+    </div> -->
 
     <!-- HANDLEBARS TEMPLATES -->
 
@@ -65,9 +71,9 @@
 
         <ul data-role="listview" data-filter="true">
           {{#each events}}
-            <li class="ul-li-has-thumb">
-              <a href="event{{id}}" class="ui-btn">
-                <img src="img/rsz_event-management.png" alt="event1_img" />
+            <li>
+              <a href="#" class="ui-btn">
+                <img src="img/rsz_event-management.png" alt="event_image" />
                 <h4>{{name}}</h4>
                 <p>{{description}}</p>
               </a>
@@ -83,22 +89,25 @@
 
       <!-- Header -->
       <div data-role="header">
-        <h1>Tinder For Babies</h1>
+<<<<<<< HEAD
+        <h1>Local Events</h1>
+      </div>
+
+      <!-- Container -->
+      <div id="container" data-role="main">
+          <img src="img/rsz_event-management.png" alt="event1_img" class='event_picker_img' /><br>
+          <h2>Wine Tasting</h2>
+          <p> ~ at ~ <p>
+          <h2>Fernanda's Vinyard</h2>
+=======
+        <h1>whereTo?</h1>
       </div>
 
       <!-- Container -->
       <div id="container" data-role="main" class="ui-content">
-        <h4>Multiple Events</h4>
-
-        <ul data-role="listview" data-filter="true">
-            <li>
-              <a href="" class="ui-btn">
-                <img src="img/rsz_event-management.png" alt="event1_img" />
-                <h4>MONKEY</h4>
-                <p>Banana</p>
-              </a>
-            </li>
-        </ul>
+        <img id="logo" src="img/whereTo.jpg" alt="temp_logo"/>
+        <a href="#" id="login" class="ui-btn">Login With Facebook</a>
+>>>>>>> master
       </div><!-- End Container -->
 
       <!-- Footer -->
