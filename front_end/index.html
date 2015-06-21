@@ -62,8 +62,8 @@
         <ul data-role="listview" data-filter="true">
           {{#each events}}
             <li class="ul-li-has-thumb">
-              <a href="event{{event.id}}" class="ui-btn">
-                <img src="{{image}}" alt="event1_img" />
+              <a href="event{{id}}" class="ui-btn">
+                <img src="img/rsz_event-management.png" alt="event1_img" />
                 <h4>{{name}}</h4>
                 <p>{{description}}</p>
               </a>
@@ -84,7 +84,17 @@
 
       <!-- Container -->
       <div id="container" data-role="main" class="ui-content">
+        <h4>Multiple Events</h4>
 
+        <ul data-role="listview" data-filter="true">
+            <li>
+              <a href="" class="ui-btn">
+                <img src="img/rsz_event-management.png" alt="event1_img" />
+                <h4>MONKEY</h4>
+                <p>Banana</p>
+              </a>
+            </li>
+        </ul>
       </div><!-- End Container -->
 
       <!-- Footer -->
