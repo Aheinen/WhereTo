@@ -38,7 +38,11 @@ sample_cats.each do |c|
 
   cat = Category.where(name:c)[0]
 
-  url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=#{ENV['EVENTFUL_KEY']}"
+  p url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=#{ENV['EVENTFUL_KEY']}"
+
+  response = HTTParty.get(url)
+
+  body = JSON.parse(response)
 
   response = HTTParty.get(url)
 
@@ -80,7 +84,7 @@ sample_cats.each do |c|
     event = Event.new(name: name, city: city, description: description, venue: venue, price: price, free: free, start_time: starttime, end_time: endtime, performer: performer, image: image)
 
     if event.save
-      CategoryEvent.create(category_id: cat.id, event_id: e.id)
+      CategoryEvent.create(category_id: cat.id, event_id: event.id)
     end
 
   end
