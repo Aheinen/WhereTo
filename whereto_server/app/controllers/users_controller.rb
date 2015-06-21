@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user.interests.destroy_all
     @user.interests.create(params[:interests])
-    redirect 'events/index'
+    redirect_to user_events_path(@user)
   end
 
   private
