@@ -1,15 +1,39 @@
-h1, h2, h3, h4, h5, h6, p {
+/*h1, h2, h3, h4, h5, h6, p {
   color: #2ad;
+}*/
+
+#single {
+    background: url("../img/elvis-bg.jpg");
+    background-position:center center;
+    background-attachment:scroll;
+    background-size:100% 100%;
 }
 
-img {
-  opacity: 0.4;
+.transbox {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0,0,0,0.6);
+    margin-top: 60%;
+/*    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */*/
 }
 
-.image {
+
+@font-face {
+  font-family: "TitleFont";
+  src: url('../fonts/PridaBlack01.woff');
+}
+
+.transbox p {
+    font-family: TitleFont;
+    color: yellow;
+    font-size: 40px;
+}
+/*.image {
   position: relative;
   width: 100%;
 }
+*/
 
 .event_name {
   position: absolute;
@@ -18,15 +42,11 @@ img {
   width: 100%;
 }
 
-.login-picture{
-  position: absolute;
-  width: 100%;
-}
-
 .login-button {
   width: 50%;
   margin-left: 25%;
   margin-right: auto;
-  margin-top: 150%;
-  opacity: 1;
+  margin-top: 70%;
 }
+
+
