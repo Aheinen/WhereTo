@@ -40,6 +40,10 @@ sample_cats.each do |c|
 
   url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=#{ENV['EVENTFUL_KEY']}"
 
+  response = HTTParty.get(url)
+
+  body = JSON.parse(response)
+
   body["events"]["event"].each_with_index do |event, index|
     name = event["title"]
     city = event["city_name"]
