@@ -42,11 +42,14 @@
   width: 100%;
 }
 
+
+#logo {
+  min-width: 100%;
+}
+
 .login-button {
   width: 50%;
   margin-left: 25%;
   margin-right: auto;
   margin-top: 70%;
 }
-
-
