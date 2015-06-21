@@ -17,3 +17,16 @@ img {
   left: 0px;
   width: 100%;
 }
+
+.login-picture{
+  position: absolute;
+  width: 100%;
+}
+
+.login-button {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: auto;
+  margin-top: 150%;
+  opacity: 1;
+}
