@@ -12,11 +12,16 @@
     <!-- Personal CSS -->
     <link href="css/styles.css" rel="stylesheet" media="screen">
 
+    <!-- Personal AJAX -->
+    <script src="js/my-ajax.js"></script>
+
     <!-- jQuery Mobile -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <!-- Handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
     <!-- Modernizer -->
     <script src="js/vendor/modernizr.js"></script>
     <!-- Other Shizzz -->
@@ -36,12 +41,20 @@
       </div>
 
       <!-- Main -->
-      <div data-role="main" class="ui-content">
-        <a href="#event3">
-          <img src="img/rsz_event-management.png" alt="event3_img" />
-          <h1>Event 3</h1>
-          <p>A fucking sweet event.</p>
-        </a>
+        <!-- Handlebars Template -->
+        <script id="event-tpl" type="text/x-handlebars-template">
+          <a href="#event3">
+            <div class='image'>
+              <img src="{{event.image}}" width=100% />
+              <h2 class='event_name'>{{event.name}}</h2>
+            </div>
+            <p>Start Time: {{event.start_time}}</p>
+            <p>City: {{event.city}}</p>
+            <p>Venue: {{event.venue}}</p>
+          </a>
+        </script>
+
+      <div id="event-container" data-role="main" class="ui-content">
       </div><!-- End Main -->
 
       <!-- Footer -->
