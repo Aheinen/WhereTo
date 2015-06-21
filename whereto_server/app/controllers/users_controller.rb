@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :get_user, only: [:edit, :update]
   # Create or Login user
   def create
     p params
@@ -26,10 +26,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    # destroy existing interests and repopulate?
-  end
-
-  def destroy
+    @user.interests.destroy_all
+    @user.interests.create(params[:interests])
+    redirect 'events/index'
   end
 
   private
