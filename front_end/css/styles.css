@@ -15,7 +15,7 @@ h1 {
 
 @font-face {
   font-family: "Other";
-  src: url('../fonts/Prida01Black.otf');
+  src: url('../fonts/Plateaux.ttf');
 }
 
 h2, p {
@@ -61,8 +61,6 @@ h2, p {
   font-family: TitleFont;
   color: #E0E0FF;
   margin-top: 68%;
-  margin-left: 15%;
-  margin-right: auto;
   font-size: 50px;
   text-shadow: 4px  0px 6px #3D3D99, 0px  4px 6px black;
 }
@@ -73,7 +71,6 @@ h2, p {
   left: 0px;
   width: 100%;
 }
-
 
 #logo {
   min-width: 100%;
