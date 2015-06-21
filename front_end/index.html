@@ -14,159 +14,91 @@
 
     <!-- jQuery Mobile -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-1.11.3.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <!-- Personal AJAX -->
+    <script src="js/my-ajax.js"></script>
+    <!-- Handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.js"></script>
     <!-- Modernizer -->
     <script src="js/vendor/modernizr.js"></script>
     <!-- Other Shizzz -->
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <!-- Auth -->
+    <script src="js/auth.js"></script>
   </head>
   <body>
 
     <!-- References: -->
     <!-- data-transition options: fade, flip, flow, pop, slide, slidedown, slidefade, slideup, turn, none -->
 
-
-    <!-- Single Event -->
+    <!-- User Login/Signup
     <div data-role="page" id="single" data-theme="b">
-      <!-- Header -->
-      <div data-role="header">
-        <h1>Tinder For Babies</h1>
-      </div>
+      <a href="#" id="login" class="ui-btn">Login With Facebook</a>
+    </div> End User Login/Signup -->
 
-      <!-- Main -->
-      <div data-role="main" class="ui-content">
+    <!-- HANDLEBARS TEMPLATES -->
+
+      <!-- SINGLE EVENT TAB -->
+      <script id="single-event-template" type="text/x-handlebars-template">
         <a href="#event3">
-          <img src="img/rsz_event-management.png" alt="event3_img" />
-          <h1>Event 3</h1>
-          <p>A fucking sweet event.</p>
+          <div class='image'>
+            <img src="{{event.image}}" width=100% />
+            <h2 class='event_name'>{{event.name}}</h2>
+          </div>
+          <p>Event Date: {{event.start_time}}</p>
+          <p>City: {{event.city}}</p>
+          <p>Venue: {{event.venue}}</p>
         </a>
-      </div><!-- End Main -->
+      </script>
 
-      <!-- Footer -->
-      <div data-role="footer" data-position="fixed">
-        <!-- Nav -->
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#single" data-icon="home"></a></li>
-            <li><a href="#multiple" data-icon="bars"></a></li>
-            <li><a href="#wishlist" data-icon="star"></a></li>
-          </ul>
-        </div><!-- End Nav -->
-      </div><!-- End Footer -->
-    </div><!-- End Multiple Events Page -->
-
-
-
-
-
-
-
-    <!-- Multiple Events Page -->
-    <div data-role="page" id="multiple" data-theme="b">
-      <!-- Header -->
-      <div data-role="header">
-        <h1>Tinder For Babies</h1>
-      </div>
-
-      <!-- Main -->
-      <div data-role="main" class="ui-content">
+      <!-- MULTI-EVENT/WISHLIST TAB -->
+      <script id="multi-event-template" type="text/x-handlebars-template">
         <h4>Multiple Events</h4>
+
         <ul data-role="listview" data-filter="true">
-          <li>
-            <a href="#event1" class="ui-btn">
-              <img src="img/rsz_event-management.png" alt="event1_img" />
-              <h1>Event 1</h1>
-              <p>A fucking sweet event.</p>
-            </a>
-          </li>
-          <li>
-            <a href="#event2" class="ui-btn">
-              <img src="img/rsz_event-management.png" alt="event2_img" />
-              <h1>Event 2</h1>
-              <p>A fucking sweet event.</p>
-            </a>
-          </li>
-          <li>
-            <a href="#event3" class="ui-btn">
-              <img src="img/rsz_event-management.png" alt="event3_img" />
-              <h1>Event 3</h1>
-              <p>A fucking sweet event.</p>
-            </a>
-          </li>
-        </ul><!-- End Wishlist -->
-      </div><!-- End Main -->
+          {{#each events}}
+            <li class="ul-lis-has-thumb">
+              <a href="event{{event.id}}" class="ui-btn">
+                <img src="{{image}}" alt="event1_img" />
+                <h4>{{name}}</h4>
+                <p>{{description}}</p>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </script>
 
-      <!-- Footer -->
-      <div data-role="footer" data-position="fixed">
-        <!-- Nav -->
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#single" data-icon="home"></a></li>
-            <li><a href="#multiple" data-icon="bars"></a></li>
-            <li><a href="#wishlist" data-icon="star"></a></li>
-          </ul>
-        </div><!-- End Nav -->
-      </div><!-- End Footer -->
-    </div><!-- End Multiple Events Page -->
+    <!-- END HANDLEBARS TEMPLATES -->
 
+    <!-- App -->
+    <div data-role="page" id="single" data-theme="b">
 
-
-
-
-
-    <!-- Wishlist Page -->
-    <div data-role="page" id="wishlist" data-theme="b">
       <!-- Header -->
       <div data-role="header">
         <h1>Tinder For Babies</h1>
       </div>
 
-      <!-- Main -->
-      <div data-role="main" class="ui-content">
-        <h4>Wishlist</h4>
-        <ul data-role="listview" data-filter="true">
-          <li>
-            <a href="#event1" class="ui-btn">
-              <img src="img/rsz_event-management.png" alt="event1_img" />
-              <h1>Event 1</h1>
-              <p>A fucking sweet event.</p>
-            </a>
-          </li>
-          <li>
-            <a href="#event2" class="ui-btn">
-              <img src="img/rsz_event-management.png" alt="event2_img" />
-              <h1>Event 2</h1>
-              <p>A fucking sweet event.</p>
-            </a>
-          </li>
-          <li>
-            <a href="#event3" class="ui-btn">
-              <img src="img/rsz_event-management.png" alt="event3_img" />
-              <h1>Event 3</h1>
-              <p>A fucking sweet event.</p>
-            </a>
-          </li>
-        </ul><!-- End Wishlist -->
-      </div><!-- End Main -->
+      <!-- Container -->
+      <div id="container" data-role="main" class="ui-content">
+
+      </div><!-- End Container -->
 
       <!-- Footer -->
       <div data-role="footer" data-position="fixed">
         <!-- Nav -->
         <div data-role="navbar">
           <ul>
-            <li><a href="#single" data-icon="home"></a></li>
-            <li><a href="#multiple" data-icon="bars"></a></li>
-            <li><a href="#wishlist" data-icon="star"></a></li>
+            <li><a class="single-event-link" href="#single" data-icon="home"></a></li>
+            <li><a class="multi-event-link" href="#multiple" data-icon="bars"></a></li>
+            <li><a class="multi-event-link" href="#wishlist" data-icon="star"></a></li>
           </ul>
         </div><!-- End Nav -->
       </div><!-- End Footer -->
-    </div><!-- End Multiple Events Page -->
-
-
-
-
+    </div><!-- End App -->
 
 
 
