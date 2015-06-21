@@ -1,39 +1,71 @@
-/*h1, h2, h3, h4, h5, h6, p {
-  color: #2ad;
-}*/
 
-#single {
-    background: url("../img/elvis-bg.jpg");
-    background-position:center center;
-    background-attachment:scroll;
-    background-size:100% 100%;
+#frontpage {
+  background: url("../img/elvis-bg.jpg");
+  background-position:center center;
+  background-attachment:scroll;
+  background-size:100% 100%;
 }
 
-.transbox {
-    width: 100%;
-    height: 100px;
-    background-color: rgba(0,0,0,0.6);
-    margin-top: 60%;
-/*    opacity: 0.6;
-    filter: alpha(opacity=60); /* For IE8 and earlier */*/
+h1 {
+  color: #E0E0FF;
+  font-family: TitleFont;
+  text-shadow: 4px  0px 6px #3D3D99, 0px  4px 6px black;
 }
 
 
 @font-face {
+  font-family: "Other";
+  src: url('../fonts/Prida01Black.otf');
+}
+
+h2, p {
+  font-size: 25px;
+  font-family: Other;
+  text-align: center;
+  color: #E0E0FF;
+  text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
+}
+
+#right_arrow {
+  position: absolute;
+  top: 360px;
+  left: 200px;
+}
+
+#left_arrow {
+  position: absolute;
+  top: 360px;
+  left: 30px;
+}
+
+.event_picker_img {
+  border-radius: 20px;
+  border-left: 2px solid #CCCCFF;
+  border-top: 2px solid #CCCCFF;
+  border-right: 2px solid #3D3D99;
+  border-bottom: 2px solid #3D3D99;
+  margin: auto auto;
+  display: block;
+  margin-top: 10%;
+  background-color: #E0E0FF;
+  padding: 4px;
+  box-shadow: 5px 5px 5px black;
+}
+
+@font-face {
   font-family: "TitleFont";
-  src: url('../fonts/PridaBlack01.woff');
+  src: url('../fonts/MavblisDemo.otf');
 }
 
 .transbox p {
-    font-family: TitleFont;
-    color: yellow;
-    font-size: 40px;
+  font-family: TitleFont;
+  color: #E0E0FF;
+  margin-top: 68%;
+  margin-left: 15%;
+  margin-right: auto;
+  font-size: 50px;
+  text-shadow: 4px  0px 6px #3D3D99, 0px  4px 6px black;
 }
-/*.image {
-  position: relative;
-  width: 100%;
-}
-*/
 
 .event_name {
   position: absolute;
@@ -51,5 +83,5 @@
   width: 50%;
   margin-left: 25%;
   margin-right: auto;
-  margin-top: 70%;
+  margin-top: 60%;
 }
