@@ -1,32 +1,34 @@
-categories = [{:name => 'music', :description => 'Concerts & Tour Dates' },
-{:name => 'conference', :description => 'Conferences & Tradeshows' },
-{:name => 'comedy', :description => 'Comedy' },
-{:name => 'learning_education', :description => 'Education' },
-{:name => 'family_fun_kids', :description => 'Kids & Family' },
-{:name => 'festivals_parades', :description => 'Festivals' },
-{:name => 'movies_film', :description => 'Film' },
-{:name => 'food', :description => 'Food & Wine' },
-{:name => 'fundraisers', :description => 'Fundraising & Charity' },
-{:name => 'art', :description => 'Art Galleries & Exhibits' },
-{:name => 'support', :description => 'Health & Wellness' },
-{:name => 'holiday', :description => 'Holiday' },
-{:name => 'books', :description => 'Literary & Books' },
-{:name => 'attractions', :description => 'Museums & Attractions' },
-{:name => 'community', :description => 'Neighborhood' },
-{:name => 'business', :description => 'Business & Networking' },
-{:name => 'singles_social', :description => 'Nightlife & Singles' },
-{:name => 'schools_alumni', :description => 'University & Alumni' },
-{:name => 'clubs_associations', :description => 'Organizations & Meetups' },
-{:name => 'outdoors_recreation', :description => 'Outdoors & Recreation' },
-{:name => 'performing_arts', :description => 'Performing Arts' },
-{:name => 'animals', :description => 'Pets' },
-{:name => 'politics_activism', :description => 'Politics & Activism' },
-{:name => 'sales', :description => 'Sales & Retail' },
-{:name => 'science', :description => 'Science' },
-{:name => 'religion_spirituality', :description => 'Religion & Spirituality' },
-{:name => 'sports', :description => 'Sports' },
-{:name => 'technology', :description => 'Technology' },
-{:name => 'other', :description => 'Other & Miscellaneous' }]
+categories = [
+  {:name => 'music', :description => 'Concerts & Tour Dates' },
+  {:name => 'conference', :description => 'Conferences & Tradeshows' },
+  {:name => 'comedy', :description => 'Comedy' },
+  {:name => 'learning_education', :description => 'Education' },
+  {:name => 'family_fun_kids', :description => 'Kids & Family' },
+  {:name => 'festivals_parades', :description => 'Festivals' },
+  {:name => 'movies_film', :description => 'Film' },
+  {:name => 'food', :description => 'Food & Wine' },
+  {:name => 'fundraisers', :description => 'Fundraising & Charity' },
+  {:name => 'art', :description => 'Art Galleries & Exhibits' },
+  {:name => 'support', :description => 'Health & Wellness' },
+  {:name => 'holiday', :description => 'Holiday' },
+  {:name => 'books', :description => 'Literary & Books' },
+  {:name => 'attractions', :description => 'Museums & Attractions' },
+  {:name => 'community', :description => 'Neighborhood' },
+  {:name => 'business', :description => 'Business & Networking' },
+  {:name => 'singles_social', :description => 'Nightlife & Singles' },
+  {:name => 'schools_alumni', :description => 'University & Alumni' },
+  {:name => 'clubs_associations', :description => 'Organizations & Meetups' },
+  {:name => 'outdoors_recreation', :description => 'Outdoors & Recreation' },
+  {:name => 'performing_arts', :description => 'Performing Arts' },
+  {:name => 'animals', :description => 'Pets' },
+  {:name => 'politics_activism', :description => 'Politics & Activism' },
+  {:name => 'sales', :description => 'Sales & Retail' },
+  {:name => 'science', :description => 'Science' },
+  {:name => 'religion_spirituality', :description => 'Religion & Spirituality' },
+  {:name => 'sports', :description => 'Sports' },
+  {:name => 'technology', :description => 'Technology' },
+  {:name => 'other', :description => 'Other & Miscellaneous' }
+]
 
 Category.create(categories)
 
@@ -36,18 +38,11 @@ sample_cats.each do |c|
 
   cat = Category.where(name:c)[0]
 
-  p url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=#{ENV['EVENTFUL_KEY']}"
+  url = "http://api.eventful.com/json/events/search?location=San%20Francisco&category=#{c}&date=this_week&app_key=#{ENV['EVENTFUL_KEY']}"
 
   response = HTTParty.get(url)
 
   body = JSON.parse(response)
-
-  # p body
-  # p "*"*30
-  # p body["events"]
-  # p "*"*30
-  # p body["events"]["event"][0]["title"]
-  # p body["events"]["event"]["title"]
 
   body["events"]["event"].each_with_index do |event, index|
     name = event["title"]
@@ -82,20 +77,11 @@ sample_cats.each do |c|
     end
 
 
-    e = Event.new(name: name, city: city, description: description, venue: venue, price: price, free: free, start_time: starttime, end_time: endtime, performer: performer, image: image)
+    event = Event.new(name: name, city: city, description: description, venue: venue, price: price, free: free, start_time: starttime, end_time: endtime, performer: performer, image: image)
 
-    if e.save
+    if event.save
       CategoryEvent.create(category_id: cat.id, event_id: e.id)
     end
 
   end
 end
-
-# Event.all.each do |e|
-#   if !e.image.nil?
-#     p e.image
-#     e.image.gsub!(/medium/,"block250")
-#     e.save
-#     p e
-#   end
-# end
