@@ -55,6 +55,8 @@ $(document).ready(function(event) {
             // }
 
             $("#container").html(template(json))
+            $("#container > ul").listview().listview("refresh")
+
         }) // end getJSON
 
     }) // end multi
