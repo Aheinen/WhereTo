@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   def interests_ids
     self.interests.map(&:id)
   end
+
+  def wishlist_ids
+    self.wishlists.map(&:event_id)
+  end
 end

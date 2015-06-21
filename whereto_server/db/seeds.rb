@@ -44,6 +44,10 @@ sample_cats.each do |c|
 
   body = JSON.parse(response)
 
+  response = HTTParty.get(url)
+
+  body = JSON.parse(response)
+
   body["events"]["event"].each_with_index do |event, index|
     name = event["title"]
     city = event["city_name"]
