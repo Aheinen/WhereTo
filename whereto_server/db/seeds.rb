@@ -59,13 +59,17 @@ sample_cats.each do |c|
     endtime = event["stop_time"]
     perf = []
     if event["performers"] && !event["performers"].nil?
-      puts "this is event-performers:"
-      p event["performers"]
-      event["performers"]["performer"].each {|k,v | perf << v["name"] }
+      if event["performers"]["performer"].class == Array
+        event["performers"]["performer"].each { |pe| perf << pe["name"]}
+        performer = perf.join(", ")
+      else
+        p event["performers"]["performer"]
+        p event["performers"]["performer"]["name"]
+        performer = event["performers"]["performer"]["name"]
+      end
     else
       performer = nil
     end
-    performer = perf.join(", ")
     event["free"] == 1 ? free = true : free = false
     if description == ""
       if event["performers"]
