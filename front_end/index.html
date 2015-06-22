@@ -49,8 +49,8 @@
       <!-- SINGLE EVENT TAB -->
       <script id="single-event-template" type="text/x-handlebars-template">
         <a href="#">
-          <div class='image'>
-            <img src="{{event.image}}" width=100% />
+          <div id="{{event.id}}" class='image'>
+            <img  src="{{event.image}}" width=100% />
             <h2>{{event.name}}</h2>
           </div>
           <p>Event Date: {{event.start_time}}</p>

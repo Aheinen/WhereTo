@@ -1,19 +1,34 @@
 $(document).ready(function(event) {
-  $('#container').on('swipeleft', '.event_picker_img', function(e){
+  baseURL = 'http://localhost:3000/'
+  $('#container').on('swipeleft', '.image', function(e){
     e.preventDefault();
-    console.log('swiped left!');
+    var data = {accepted: false};
+    createWishlist(data);
   });
 
-  $('#container').on('swiperight', '.event_picker_img', function(e){
+  $('#container').on('swiperight', '.image', function(e){
     e.preventDefault();
-    console.log('swiped right!');
+    var data = {accepted: true};
+    createWishlist(data);
   });
-
 });
 
-// var createWishlist = function(url, ) {
-//   $.ajax({
-//     url: url,
-
-//   })
-// }
+var createWishlist = function(data) {
+  var user_id = $('#container').attr('class')
+  var event_id = $('.image').attr('id');
+  var url = 'users/' + user_id + '/events/' + event_id + '/wishlists'
+  $.ajax({
+    url: baseURL + url,
+    type: "POST",
+    data: data
+  })
+  .done(function(response){
+    template = Handlebars.compile($("#single-event-template").html());
+    var desc = "<p>Description: " + response.event.description + "</p>";
+    $("#container").html(template(response));
+    $('#container a').append(desc);
+  })
+  .fail(function(){
+    alert('fail');
+  })
+}

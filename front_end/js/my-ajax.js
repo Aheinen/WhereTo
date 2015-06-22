@@ -41,20 +41,20 @@ $(document).ready(function(event) {
     }) // end multi
 
 
-    $('#trash').click(function(event) {
-        event.preventDefault();
+    // $('#trash').click(function(event) {
+    //     event.preventDefault();
 
-        var url = "http://localhost:3000/categories"
+    //     var url = "http://localhost:3000/categories"
 
-        template = Handlebars.compile($("#preferences").html())
+    //     template = Handlebars.compile($("#preferences").html())
 
-        $.getJSON(url, function(json) {
-            $("#container").html(template(json))
-            $("#container > ul").listview().listview("refresh")
-        }) // end getJSON preferences
+    //     $.getJSON(url, function(json) {
+    //         $("#container").html(template(json))
+    //         $("#container > ul").listview().listview("refresh")
+    //     }) // end getJSON preferences
 
 
-    }); // end trash event handler
+    // }); // end trash event handler
 
 
     $('#container').on('click', '.category', function(event) {
