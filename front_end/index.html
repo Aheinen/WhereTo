@@ -25,17 +25,16 @@
     <script src="js/vendor/modernizr.js"></script>
     <!-- Other Shizzz -->
     <!-- Firebase -->
-    <!--
+
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-    -->
+
     <!-- Auth -->
-    <!--
+
     <script src="js/auth.js"></script>
-<<<<<<< HEAD
-    -->
-=======
+
+
     <script src="js/single-event.js"></script>
->>>>>>> master
+
   </head>
   <body>
 
@@ -43,13 +42,7 @@
     <!-- data-transition options: fade, flip, flow, pop, slide, slidedown, slidefade, slideup, turn, none -->
 
 
-<!--
-    <div data-role="page" id="frontpage" data-theme="b">
-        <div class="transbox">
-          <p>Where To</p>
-        </div>
-      <a href="#"><img id="login" class="login-button" src="./img/fb-button.png"/></a>
-    </div> -->
+
 
     <!-- HANDLEBARS TEMPLATES -->
 
@@ -105,22 +98,20 @@
     <div data-role="page" id="single" data-theme="b">
 
       <!-- Header -->
-      <div data-role="header">
+      <div data-role="header" style="display: none">
         <h1>Local Events</h1>
       </div>
 
       <!-- Container -->
-      <div id="container" data-role="main">
-          <img src="img/rsz_event-management.png" alt="event1_img" class='event_picker_img' /><br>
-          <h2>Wine Tasting</h2>
-          <p> ~ at ~ <p>x
-          <h2>Fernanda's Vinyard</h2>
-          <!-- TRASH THIS -->
-          <a id="trash" href="#trash">TRASH</a>
+      <div id="container" class="landing_page" data-role="main">
+          <div class="transbox">
+            <p>Where To</p>
+          </div>
+          <a href="#"><img id="login" class="login-button" src="./img/fb-button.png"/></a>
       </div><!-- End Container -->
 
       <!-- Footer -->
-      <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-position="fixed" style="display: none">
         <!-- Nav -->
         <div data-role="navbar">
           <ul>

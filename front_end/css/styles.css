@@ -1,5 +1,5 @@
 
-#frontpage {
+.landing_page {
   background: url("../img/elvis-bg.jpg");
   background-position:center center;
   background-attachment:scroll;

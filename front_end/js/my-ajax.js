@@ -82,9 +82,11 @@ $(document).ready(function(event) {
 
         alert("Category IDs: " + interests);
 
+        var user_id = $('#container').attr('class')
+
         var updateInterests = $.ajax({
             type: "patch",
-            url: "http://localhost:3000/users/4",
+            url: "http://localhost:3000/users/"+user_id,
             data: {interests: interests}
         });
 

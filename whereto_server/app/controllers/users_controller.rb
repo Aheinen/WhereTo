@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
   # Edit preferences
   def edit
-    p params
     get_user
     interests = @user.interests
     @categories = Category.all
@@ -24,8 +23,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    interests_ids = params[:interests].map {|i| {category_id: i.to_i}}
     @user.interests.destroy_all
-    @user.interests.create(params[:interests])
+
+    @user.interests.create(interests_ids)
     redirect_to user_events_path(@user)
   end
 
