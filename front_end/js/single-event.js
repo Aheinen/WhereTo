@@ -1,10 +1,11 @@
 $(document).ready(function(event) {
-  $('#container').on('swipeleft', '.event_picker_img', function(e){
+  console.log('we are here')
+  $('#container').on('swipeleft', '.image', function(e){
     e.preventDefault();
     console.log('swiped left!');
   });
 
-  $('#container').on('swiperight', '.event_picker_img', function(e){
+  $('#container').on('swiperight', '.image', function(e){
     e.preventDefault();
     console.log('swiped right!');
   });
