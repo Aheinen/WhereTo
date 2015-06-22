@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get '/events/list' => 'events#list'
   end
 
+  # Access All Categories
+  get '/categories' => 'users#categories'
+  get '/events' => 'events#all'
 
   # You can have the root of your site routed with "root"
 

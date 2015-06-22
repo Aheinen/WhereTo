@@ -25,9 +25,13 @@
     <script src="js/vendor/modernizr.js"></script>
     <!-- Other Shizzz -->
     <!-- Firebase -->
+    <!--
     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    -->
     <!-- Auth -->
+    <!--
     <script src="js/auth.js"></script>
+    -->
   </head>
   <body>
 
@@ -72,7 +76,7 @@
               </a>
             </li>
           {{/each}}
-        < /ul>
+        </ul>
       </script>
 
       <!-- PREFERENCES PAGE -->
@@ -80,15 +84,15 @@
         <h4>Select Your Preferences</h4>
 
         <ul data-role="listview" data-filter="true">
+          <li><a href="#" id="submit_preferences" class="ui-btn"><p>Submit Prefernces</p></a></li>
           {{#each categories}}
             <li>
-              <a href="{{name}}" class="ui-btn">
-                <h4>{{name}}</h4>
+              <a href="#" class="category ui-btn">
                 <p>{{description}}</p>
               </a>
             </li>
           {{/each}}
-        < /ul>
+        </ul>
       </script>
 
     <!-- END HANDLEBARS TEMPLATES -->
@@ -106,9 +110,10 @@
       <div id="container" data-role="main">
           <img src="img/rsz_event-management.png" alt="event1_img" class='event_picker_img' /><br>
           <h2>Wine Tasting</h2>
-          <p> ~ at ~ <p>
+          <p> ~ at ~ <p>x
           <h2>Fernanda's Vinyard</h2>
-
+          <!-- TRASH THIS -->
+          <a id="trash" href="#trash">TRASH</a>
       </div><!-- End Container -->
 
       <!-- Footer -->
