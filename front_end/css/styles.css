@@ -1,27 +1,39 @@
-
+/** {
+  border: 1px solid red;
+}
+*/
 .landing_page {
   background: url("../img/elvis-bg.jpg");
-  background-position:center center;
-  background-attachment:scroll;
-  background-size:100% 100%;
+  background-size: 110%;
+  height: 640px;
+  border: 1px solid black; /*try to get rid of this without messing up rest of image*/
 }
 
-h1 {
+h1, h4 {
   color: #E0E0FF;
   font-family: TitleFont;
+  padding: 10px 0px 5px 0px;
+  text-align: center;
   text-shadow: 4px  0px 6px #3D3D99, 0px  4px 6px black;
 }
+
 
 @font-face {
   font-family: "Fradle";
   src: url('../fonts/FRADLE__.ttf');
 }
 
-h2, p {
+h2 {
   font-size: 1em;
   font-family: Fradle;
   text-align: center;
   color: #E0E0FF;
+  text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
+}
+
+p {
+  color: #E0E0FF;
+  font-size: 2em;
   text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
 }
 
@@ -49,6 +61,12 @@ h2 {
   box-shadow:         inset 0 0 30px #000000;*/
 }
 
+.cat_imgs {
+  width: 60;
+  height: 60px;
+  padding: 12px;
+}
+
 .event_picker_img {
   border-radius: 20px;
   border-left: 2px solid #CCCCFF;
@@ -68,11 +86,12 @@ h2 {
   src: url('../fonts/MavblisDemo.otf');
 }
 
-.transbox p {
+h3 {
   font-family: TitleFont;
   color: #E0E0FF;
   margin-top: 68%;
   font-size: 50px;
+  margin-left: 15%;
   text-shadow: 4px  0px 6px #3D3D99, 0px  4px 6px black;
 }
 
@@ -92,4 +111,10 @@ h2 {
   margin-left: 25%;
   margin-right: auto;
   margin-top: 60%;
+}
+
+.sub {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
 }

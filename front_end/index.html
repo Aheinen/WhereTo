@@ -81,15 +81,16 @@
         <h4>Select Your Preferences</h4>
 
         <ul data-role="listview" data-filter="true">
-          <li><a href="#" id="submit_preferences" class="ui-btn"><p>Submit Prefernces</p></a></li>
           {{#each categories}}
             <li>
               <a href="#" class="category ui-btn">
+                <img src="/img/cat_imgs/{{image}}" alt="category_image" class='cat_imgs' />
                 <p>{{description}}</p>
               </a>
             </li>
           {{/each}}
         </ul>
+        <a href="#" id="submit_preferences" class="ui-btn"><p class='sub'>Submit Prefernces</p></a>
       </script>
 
     <!-- END HANDLEBARS TEMPLATES -->
@@ -105,7 +106,7 @@
       <!-- Container -->
       <div id="container" class="landing_page" data-role="main">
           <div class="transbox">
-            <p>Where To</p>
+            <h3>Where To</h3>
           </div>
           <a href="#"><img id="login" class="login-button" src="./img/fb-button.png"/></a>
       </div><!-- End Container -->
