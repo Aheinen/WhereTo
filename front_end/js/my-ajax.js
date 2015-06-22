@@ -10,7 +10,6 @@ $(document).ready(function(event) {
 
         $.getJSON(url, function(json) {
            var desc = "<p>Description: " + json.event.description + "</p>";
-
             $("#container").html(template(json))
 
             $('#container a').append(desc)
