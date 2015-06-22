@@ -24,13 +24,12 @@ $(document).ready(function(event) {
 
         event.preventDefault();
 
-        var url = "http://localhost:3000/users/1/events"
+        var url = "http://localhost:3000/users/11/events"
 
         template = Handlebars.compile($("#single-event-template").html())
 
         $.getJSON(url, function(json) {
            var desc = "<p>Description: " + json.event.description + "</p>";
-
             $("#container").html(template(json))
 
             $('#container a').append(desc)
@@ -43,7 +42,7 @@ $(document).ready(function(event) {
 
         event.preventDefault();
 
-        var url = "http://localhost:3000/users/1/events"
+        var url = "http://localhost:3000/users/11/events"
 
         template = Handlebars.compile($("#multi-event-template").html())
 
