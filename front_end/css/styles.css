@@ -26,19 +26,23 @@ h1, h4 {
 h2 {
   font-size: 1em;
   font-family: Fradle;
-  text-align: center;
   color: #E0E0FF;
   text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
+}
+
+.ui_btn, ul {
+  border: 1px solid black;
+  border-top: none;
+}
+
+.ui_btn {
+  color: red;
 }
 
 p {
   color: #E0E0FF;
-  font-size: 2em;
+  font-size: .9em !important;
   text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
-}
-
-h2 {
-  font-size: 1.3em;
 }
 
 #event_info {
@@ -113,8 +117,6 @@ h3 {
   margin-top: 60%;
 }
 
-.sub {
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center;
+#sub {
+  font-size: 50px !important;
 }
