@@ -80,18 +80,22 @@ $(document).ready(function(event) {
             } // end if loop
         }); // end each loop
 
-        alert("Category IDs: " + interests);
+        // alert("Category IDs: " + interests);
 
         var user_id = $('#container').attr('class')
 
-        var updateInterests = $.ajax({
-            type: "patch",
-            url: "http://localhost:3000/users/"+user_id,
-            data: {interests: interests}
-        });
+        var updateInterests = $.post(
+            "http://localhost:3000/users/"+user_id+"/interests",
+            {interests: interests}
+        );
 
-        updateInterests.done(function(){
-            alert("Yeah!");
+        updateInterests.done(function(response){
+            $('#header').removeAttr('style');
+            $('#footer').removeAttr('style');
+            template = Handlebars.compile($("#single-event-template").html());
+            var desc = "<p>Description: " + response.event.description + "</p>";
+            $("#container").html(template(response));
+            $('#container a').append(desc);
         })
 
         updateInterests.fail(function(){
