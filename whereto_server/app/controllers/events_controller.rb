@@ -11,4 +11,12 @@ class EventsController < ApplicationController
     events = Event.featured_events(@user.interests_ids, @user.city, @user.wishlist_ids).limit(20)
     render json: {user: @user, events: events}
   end
+
+  def all
+    @event = Event.all.sample
+    @events = Event.all
+
+    render json: {event: @event, events: @events}
+  end
+
 end

@@ -29,6 +29,13 @@ class UsersController < ApplicationController
     redirect_to user_events_path(@user)
   end
 
+  # Access All Categories
+  def categories
+    @categories = Category.all
+
+    render json: {categories: @categories}
+  end
+
   private
 
   def get_user
