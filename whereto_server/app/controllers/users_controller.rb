@@ -22,14 +22,6 @@ class UsersController < ApplicationController
     render 'edit.json.jbuilder'
   end
 
-  def update
-    interests_ids = params[:interests].map {|i| {category_id: i.to_i}}
-    @user.interests.destroy_all
-
-    @user.interests.create(interests_ids)
-    redirect_to user_events_path(@user)
-  end
-
   # Access All Categories
   def categories
     @categories = Category.all
