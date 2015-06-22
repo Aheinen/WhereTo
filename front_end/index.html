@@ -48,10 +48,10 @@
 
       <!-- SINGLE EVENT TAB -->
       <script id="single-event-template" type="text/x-handlebars-template">
-        <a href="#event3">
+        <a href="#">
           <div class='image'>
             <img src="{{event.image}}" width=100% />
-            <h2 class='event_name'>{{event.name}}</h2>
+            <h2>{{event.name}}</h2>
           </div>
           <p>Event Date: {{event.start_time}}</p>
           <p>City: {{event.city}}</p>
@@ -98,7 +98,7 @@
     <div data-role="page" id="single" data-theme="b">
 
       <!-- Header -->
-      <div data-role="header" style="display: none">
+      <div id="header" data-role="header" style="display: none">
         <h1>Local Events</h1>
       </div>
 
@@ -111,7 +111,7 @@
       </div><!-- End Container -->
 
       <!-- Footer -->
-      <div data-role="footer" data-position="fixed" style="display: none">
+      <div id="footer" data-role="footer" data-position="fixed" style="display: none">
         <!-- Nav -->
         <div data-role="navbar">
           <ul>

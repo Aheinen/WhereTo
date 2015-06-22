@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :interests
 
   def interests_ids
-    self.interests.map(&:id)
+    self.interests.map(&:category_id)
   end
 
   def wishlist_ids
