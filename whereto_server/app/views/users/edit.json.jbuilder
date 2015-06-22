@@ -3,3 +3,5 @@ json.categories @categories do |c|
   json.description c.description
   json.selected c.selected(@interests)
 end
+
+json.user @user

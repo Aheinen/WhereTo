@@ -2,11 +2,9 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:edit, :update]
   # Create or Login user
   def create
-    p params
     @user = User.find_by(email: params[:email])
     if @user
       redirect_to user_events_path(@user)
-      # redirect_to '/events'
     else
       @user = User.new(user_params)
       @user.city = 'San Francisco'
@@ -28,7 +26,7 @@ class UsersController < ApplicationController
   def update
     @user.interests.destroy_all
     @user.interests.create(params[:interests])
-    redirect 'events/index'
+    redirect_to user_events_path(@user)
   end
 
   private
