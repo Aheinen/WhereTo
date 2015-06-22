@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+  match '/users/:id' => 'users#render_204', via: [:options]
   # Access All Categories
   get '/categories' => 'users#categories'
   get '/events' => 'events#all'

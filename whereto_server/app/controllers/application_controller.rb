@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::API
   before_action :allow_cross_domain
 
+
+  def render_204
+    head 204
+  end
+
   private
     def allow_cross_domain
       headers['Access-Control-Allow-Origin'] = '*'

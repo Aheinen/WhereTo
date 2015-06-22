@@ -31,7 +31,18 @@ var createUser = function(obj){
     data: obj
   })
   .done(function(response){
-    console.log(response);
+    var user_id = response.user.id.toString();
+    $('#container').addClass(user_id);
+    $('#container').removeClass("landing_page");
+
+    var url = "http://localhost:3000/categories"
+
+    template = Handlebars.compile($("#preferences").html())
+
+    $.getJSON(url, function(json) {
+      $("#container").html(template(json))
+      $("#container > ul").listview().listview("refresh")
+    }) // end getJSON preferences
   })
   .fail(function(){
     console.log("fail");
