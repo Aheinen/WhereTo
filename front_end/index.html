@@ -75,6 +75,22 @@
         < /ul>
       </script>
 
+      <!-- PREFERENCES PAGE -->
+      <script id="preferences" type="text/x-handlebars-template">
+        <h4>Select Your Preferences</h4>
+
+        <ul data-role="listview" data-filter="true">
+          {{#each categories}}
+            <li>
+              <a href="{{name}}" class="ui-btn">
+                <h4>{{name}}</h4>
+                <p>{{description}}</p>
+              </a>
+            </li>
+          {{/each}}
+        < /ul>
+      </script>
+
     <!-- END HANDLEBARS TEMPLATES -->
 
     <!-- App -->
