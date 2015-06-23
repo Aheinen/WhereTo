@@ -100,10 +100,20 @@
     <!-- App -->
     <div data-role="page" id="single" data-theme="b">
 
+      <!-- Menu Panel -->
+      <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <button class="preferences" href="#my-header" data-rel="close">Preferences</button><br>
+        <button class="settings" href="#my-header" data-rel="close">Settings</button><br>
+        <button class="logout" href="#my-header" data-rel="close">Log Out</button><br>
+        <button href="#my-header" data-rel="close">Close</a>
+      </div><!-- /panel -->
+
       <!-- Header -->
-      <div id="header" data-role="header" style="display: none">
+      <div id="header" data-role="header" data-position="fixed" style="display: none">
         <h1>Local Events</h1>
+        <a href="#mypanel">MENU</a>
       </div>
+
 
       <!-- Container -->
       <div id="container" class="landing_page" data-role="main">

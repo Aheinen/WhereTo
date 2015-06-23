@@ -1,4 +1,5 @@
 $(document).ready(function(event) {
+  $('.ui-panel-wrapper').remove()
   var ref = new Firebase("https://wheretodbc.firebaseIO.com");
 
   $('#login').on('click', function(e){
