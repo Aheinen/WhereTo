@@ -17,17 +17,35 @@ h1, h4 {
   text-shadow: 4px  0px 6px #3D3D99, 0px  4px 6px black;
 }
 
-
 @font-face {
   font-family: "Fradle";
   src: url('../fonts/FRADLE__.ttf');
 }
 
+.event_text_container {
+  position: absolute;
+  top: 70px;
+  left: 27px;
+  width: 300px;
+  height: 315px;
+}
+
 h2 {
-  font-size: 1em;
+  position: absolute;
+  bottom: 0px;
   font-family: Fradle;
+  font-size: 18px;
   color: #E0E0FF;
-  text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
+  text-shadow: 3px  3px 3px #3D3D99, 3px  3px 3px black;
+}
+
+h2 span {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.spacer {
+  background: rgba(0, 0, 0, 0.7);
+  padding:0 5px;
 }
 
 .ui_btn, ul {
@@ -39,27 +57,29 @@ h2 {
   color: red;
 }
 
+#event_name {
+  color: red;
+}
+
 p {
   color: #E0E0FF;
   font-size: .9em !important;
   text-shadow: 3px  0px 3px #3D3D99, 0px  3px 3px black;
 }
 
-#event_info {
+.event_info {
   margin-top: 10px;
   border-radius: 20px;
-  padding: 10px 0px;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-
+  margin: 15px 0px 0px 15px;
   border-radius: 20px;
-  border-left: 3px solid #CCCCFF;
-  border-top: 3px solid #CCCCFF;
-  border-right: 3px solid #3D3D99;
-  border-bottom: 3px solid #3D3D99;
+  border-left: 3px solid #CCCCFF !important;
+  border-top: 3px solid #CCCCFF !important;
+  border-right: 3px solid #3D3D99 !important;
+  border-bottom: 3px solid #3D3D99 !important;
   box-shadow: 5px 5px 5px black;
   background-color: #353535;
+  position: relative;
 /*  -moz-box-shadow:    inset 0 0 30px #000000;
   -webkit-box-shadow: inset 0 0 30px #000000;
   box-shadow:         inset 0 0 30px #000000;*/

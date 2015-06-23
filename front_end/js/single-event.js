@@ -11,6 +11,7 @@ $(document).ready(function(event) {
     var data = {accepted: true};
     createWishlist(data);
   });
+
 });
 
 var createWishlist = function(data) {
